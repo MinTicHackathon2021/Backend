@@ -5,16 +5,14 @@
  */
 package PlataformaGame.Game.controller;
 
-import PlataformaGame.Game.entity.CrearJuego;
-import PlataformaGame.Game.service.CrearJuegoService;
+import PlataformaGame.Game.entity.Respuestas;
+import PlataformaGame.Game.service.RespuestasService;
 import java.util.List;
 import java.util.Optional;
-import org.apache.catalina.connector.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.Mapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -27,27 +25,25 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @CrossOrigin("*")
-@RequestMapping("/api/crearJuego")
-public class CrearJuegoController {
+@RequestMapping("/api/respuestas")
+public class RespuestasController {
 
     @Autowired
-    private CrearJuegoService crearJuegoService;
-
+    private RespuestasService respuestasService;
+    
     @GetMapping("/all")
-    public List<CrearJuego> findAllGames() {
-        return crearJuegoService.getGames();
+    public List<Respuestas> findAllRespuestas(){
+        return respuestasService.getRespuestas();
     }
-
-    @GetMapping("/{id}")
-    public Optional<CrearJuego> findGameId(@PathVariable int id) {
-        return crearJuegoService.getGameId(id);
+    @GetMapping("{id}")
+    public Optional<Respuestas> findRespuestaId(@PathVariable int id){
+        return respuestasService.getRespuestaId(id);
     }
-
     @PostMapping("/save")
-    public ResponseEntity saveGame(@RequestBody CrearJuego crearJuego) {
-        crearJuegoService.saveGame(crearJuego);
+    public ResponseEntity saveRespuesta(@RequestBody Respuestas respuestas){
+        respuestasService.saveRespuesta(respuestas);
         return ResponseEntity.status(201).build();
-
     }
-
 }
+
+
