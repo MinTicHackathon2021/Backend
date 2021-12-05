@@ -5,6 +5,7 @@
  */
 package PlataformaGame.Game.controller;
 
+
 import PlataformaGame.Game.entity.Respuestas;
 import PlataformaGame.Game.service.RespuestasService;
 import java.util.List;
@@ -27,7 +28,6 @@ import org.springframework.web.bind.annotation.RestController;
 @CrossOrigin("*")
 @RequestMapping("/api/respuestas")
 public class RespuestasController {
-
     @Autowired
     private RespuestasService respuestasService;
     
@@ -35,15 +35,15 @@ public class RespuestasController {
     public List<Respuestas> findAllRespuestas(){
         return respuestasService.getRespuestas();
     }
-    @GetMapping("{id}")
-    public Optional<Respuestas> findRespuestaId(@PathVariable int id){
+    @GetMapping("/{id}")
+    public Optional<Respuestas> finRespuestaId(@PathVariable int id) {
         return respuestasService.getRespuestaId(id);
     }
-    @PostMapping("/save")
-    public ResponseEntity saveRespuesta(@RequestBody Respuestas respuestas){
+
+    @PostMapping("save")
+    public ResponseEntity saveRespuesta(@RequestBody Respuestas respuestas) {
         respuestasService.saveRespuesta(respuestas);
         return ResponseEntity.status(201).build();
     }
+    
 }
-
-

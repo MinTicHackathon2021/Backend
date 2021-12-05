@@ -6,6 +6,7 @@
 package PlataformaGame.Game.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import java.io.Serializable;
 import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -29,7 +30,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name="preguntas")
-public class Preguntas {
+public class Preguntas implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idPregunta;

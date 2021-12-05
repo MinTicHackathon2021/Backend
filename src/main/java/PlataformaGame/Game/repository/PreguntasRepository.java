@@ -26,7 +26,7 @@ public class PreguntasRepository {
         return (List<Preguntas>) preguntasCrudRepository.findAll();
     }
 
-    public Optional getPreguntaId(int id) {
+    public Optional<Preguntas> getPreguntaId(int id) {
         return preguntasCrudRepository.findById(id);
     }
 

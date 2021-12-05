@@ -6,6 +6,7 @@
 package PlataformaGame.Game.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -26,12 +27,11 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name="respuestas")
-public class Respuestas {
+public class Respuestas implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idRespuesta;
     private String esCorrecta;
-    private String enunciadoResp;
     private String opcionA;
     private String opcionB;
     private String opcionC;

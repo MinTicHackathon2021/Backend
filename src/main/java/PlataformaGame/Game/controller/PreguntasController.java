@@ -27,22 +27,24 @@ import org.springframework.web.bind.annotation.RestController;
 @CrossOrigin("*")
 @RequestMapping("/api/preguntas")
 public class PreguntasController {
+
     @Autowired
     private PreguntasService preguntasService;
-    
+
     @GetMapping("/all")
-    public List<Preguntas> findAllPreguntas(){
+    public List<Preguntas> findAllPreguntas() {
         return preguntasService.getPreguntas();
-        
+
     }
-    @GetMapping("{id}")
-    public Optional<Preguntas> finPreguntaId(@PathVariable int id){
+
+    @GetMapping("/{id}")
+    public Optional<Preguntas> finPreguntaId(@PathVariable int id) {
         return preguntasService.getPreguntaId(id);
     }
+
     @PostMapping("save")
-    public ResponseEntity savePregunta(@RequestBody Preguntas preguntas){
+    public ResponseEntity savePregunta(@RequestBody Preguntas preguntas) {
         preguntasService.savePregunta(preguntas);
         return ResponseEntity.status(201).build();
-    }   
+    }
 }
-

@@ -18,15 +18,20 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class PreguntasService {
-    @Autowired PreguntasRepository pregutasRepository;
-    public List<Preguntas> getPreguntas(){
+
+    @Autowired
+    private PreguntasRepository pregutasRepository;
+
+    public List<Preguntas> getPreguntas() {
         return pregutasRepository.getPreguntas();
     }
-    public Optional<Preguntas> getPreguntaId(int id){
+
+    public Optional<Preguntas> getPreguntaId(int id) {
         return pregutasRepository.getPreguntaId(id);
     }
-    public Preguntas savePregunta(Preguntas preguntas){
+
+    public Preguntas savePregunta(Preguntas preguntas) {
         return pregutasRepository.savePregunta(preguntas);
     }
-    
+
 }

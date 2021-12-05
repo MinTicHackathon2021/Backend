@@ -9,6 +9,7 @@ import PlataformaGame.Game.crudRepository.respuestasCrudRepository;
 import PlataformaGame.Game.entity.Respuestas;
 import java.util.List;
 import java.util.Optional;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 /**
@@ -17,6 +18,7 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 public class RespuestasRepository {
+    @Autowired
     private respuestasCrudRepository respuestasCrudRepository;
     
     public List<Respuestas> getRespuestas(){

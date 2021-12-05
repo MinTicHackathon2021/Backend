@@ -25,11 +25,12 @@ public class RespuestasService {
     public List<Respuestas> getRespuestas() {
         return respuestasRepository.getRespuestas();
     }
-    
-    public Optional<Respuestas> getRespuestaId(int id){
+
+    public Optional<Respuestas> getRespuestaId(int id) {
         return respuestasRepository.getRespuestaId(id);
     }
-    public Respuestas saveRespuesta(Respuestas respuestas){
+
+    public Respuestas saveRespuesta(Respuestas respuestas) {
         return respuestasRepository.saveRespuesta(respuestas);
     }
 }
